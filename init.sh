@@ -6,7 +6,7 @@ set -euo pipefail
 ########################
 
 # Name of the user to create and grant sudo privileges
-USERNAME=sammy
+USERNAME=melsior
 
 # Whether to copy over the root user's `authorized_keys` file to the new sudo
 # user.
@@ -72,3 +72,9 @@ fi
 # Add exception for SSH and then enable UFW firewall
 ufw allow OpenSSH
 ufw --force enable
+
+# Section for install make and ansible
+apt get update
+apt get install make -y
+apt-add-repository ppa:ansible/ansible -y -u
+apt get install ansible -y
